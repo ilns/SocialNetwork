@@ -8,6 +8,7 @@ import java.util.Set;
 /**
  * Created by volodymyr on 15/06/15.
  */
+// TODO FIX ME why market as Component ???
 @Component
 public class Contact {
     private String firstName;
