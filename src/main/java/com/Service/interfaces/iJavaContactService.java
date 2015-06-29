@@ -10,6 +10,7 @@ import java.util.Set;
 /**
  * Created by volodymyr on 15/06/15.
  */
+// TODO FIX ME strange name of the interface, see java convention
 public interface iJavaContactService {
     void createContact(String firstname,String lastName,LocalDate birthDay);
     void addHobby(String title,String description);

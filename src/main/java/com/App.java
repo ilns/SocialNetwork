@@ -7,6 +7,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  */
 public class App {
     public static void main(String[] args) {
+        // TODO FIX ME can't run because of errors, check please
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("spring-config.xml");
 
     }

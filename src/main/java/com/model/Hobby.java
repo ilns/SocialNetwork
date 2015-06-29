@@ -5,6 +5,8 @@ import org.springframework.stereotype.Service;
 /**
  * Created by volodymyr on 15/06/15.
  */
+
+// TODO FIX ME why market as Component ???
 @Service
 public class Hobby {
 
