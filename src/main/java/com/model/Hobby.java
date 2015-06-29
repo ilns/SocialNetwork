@@ -1,14 +1,17 @@
 package com.model;
 
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 /**
  * Created by volodymyr on 15/06/15.
  */
-@Component
+@Service
 public class Hobby {
+
     private String title;
     private String description;
+
+    public Hobby(){}
 
     public Hobby(String title, String description) {
         this.title = title;

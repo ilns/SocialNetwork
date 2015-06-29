@@ -1,14 +1,14 @@
 package com.model;
 
 import org.joda.time.LocalDate;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
 /**
  * Created by volodymyr on 15/06/15.
  */
-@Component
+@Service
 public class Contact {
     private String firstName;
     private String lastName;
@@ -24,6 +24,8 @@ public class Contact {
     public void setFriends(Set<Contact> friends) {
         this.friends = friends;
     }
+
+    public Contact (){}
 
     public Contact(String firstName, String lastName, LocalDate birthDay) {
         this.firstName = firstName;

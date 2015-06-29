@@ -1,16 +1,18 @@
 package com.model;
 
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 /**
  * Created by volodymyr on 15/06/15.
  */
-@Component
+@Service
 public class Place {
     private String title;
     private double longitude;
     private double latitude;
     private String description;
+
+    public Place(){}
 
     public Place(String title, String description, double longitude, double latitude) {
         this.title = title;
