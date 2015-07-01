@@ -1,7 +1,6 @@
 package com.model;
 
 import org.joda.time.LocalDate;
-import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
@@ -10,7 +9,6 @@ import java.util.Set;
  */
 
 // TODO FIX ME why market as Component ???
-@Service
 public class Contact {
     private String firstName;
     private String lastName;
