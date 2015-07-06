@@ -1,10 +1,11 @@
 package com.model;
 
+import org.springframework.stereotype.Component;
+
 /**
  * Created by volodymyr on 15/06/15.
  */
-
-// TODO FIX ME why market as Component ???
+@Component
 public class Place {
     private String title;
     private double longitude;

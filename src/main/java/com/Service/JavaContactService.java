@@ -1,5 +1,7 @@
-package com.Service.interfaces;
+package com.Service;
+//package com.Service.interfaces.;
 
+import com.Service.interfaces.iJavaContactService;
 import com.dao.ContactDao;
 import com.dao.HobbyDao;
 import com.dao.MessageDao;
@@ -47,12 +49,12 @@ public class JavaContactService implements iJavaContactService {
 
 
     @Override
-    public void addFtrirnShip(Contact firstContact, Contact secondContact) {
+    public void addFriendShip(Contact firstContact, Contact secondContact) {
         contactDao.addFriendShip(firstContact, secondContact);
     }
 
     @Override
-    public Set<Contact> getFrienlist(Contact contact) {
+    public Set<Contact> getFriendlist(Contact contact) {
         return contact.getFriends();
     }
 

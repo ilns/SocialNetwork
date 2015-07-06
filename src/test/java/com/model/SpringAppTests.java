@@ -1,6 +1,5 @@
 package com.model;
 
-import com.sun.xml.internal.bind.v2.TODO;
 import junit.framework.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
