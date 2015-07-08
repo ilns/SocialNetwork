@@ -12,6 +12,7 @@ import com.model.Place;
 import org.joda.time.LocalDate;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.InOrder;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
@@ -85,6 +86,20 @@ public class JavaContactServiceTest {
         contact.setFirstName("a");
         contact.setLastName("aa");
         verify(contactDao).deleteContact(contact);
+    }
+
+    @Test
+    public void testCreatContactAndFaindTheMaches() throws Exception{
+        JavaContactService mockJavaContactService = mock(JavaContactService.class);
+
+        LocalDate dt = new LocalDate(1993, 12, 3);
+
+        mockJavaContactService.createContact("Vova", "Zinchenko", dt);
+
+        InOrder inOrder = inOrder(mockJavaContactService);
+
+        inOrder.verify(mockJavaContactService).createContact("Vova", "Zinchenko", dt);
+
     }
 
 }
