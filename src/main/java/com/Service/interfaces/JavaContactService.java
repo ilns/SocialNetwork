@@ -10,7 +10,7 @@ import java.util.Set;
 /**
  * Created by volodymyr on 15/06/15.
  */
-public interface iJavaContactService {
+public interface JavaContactService {
     void createContact(String firstname,String lastName,LocalDate birthDay);
     void addHobby(String title,String description);
     void addPlace(String title , String description , double longitude, double latitude);

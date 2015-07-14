@@ -1,9 +1,9 @@
 package com.dao;
 
 
-import com.dao.Interfaces.iHobbyDao;
+import com.dao.Interfaces.PlaceDao;
 import com.model.Contact;
-import com.model.Hobby;
+import com.model.Place;
 import org.springframework.stereotype.Component;
 
 import java.util.Set;
@@ -12,15 +12,15 @@ import java.util.Set;
  * Created by volodymyr on 15/06/15.
  */
 @Component
-public class HobbyDao implements iHobbyDao {
+public class PlaceDaoImpl implements PlaceDao {
 
     @Override
-    public void addHobby(Hobby hobby) {
+    public void addPlace(Place place) {
 
     }
 
     @Override
-    public Set<Contact> getAllContactsWithHobby(Hobby hobby) {
+    public Set<Contact> getAllContactsForPlace(Place place) {
         return null;
     }
 }

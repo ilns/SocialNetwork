@@ -2,14 +2,12 @@ package com.model;
 
 
 import org.joda.time.LocalDate;
-import org.springframework.stereotype.Component;
 
 
 /**
  * Created by volodymyr on 15/06/15.
  */
 
-    @Component
 public class Message {
     private LocalDate date;
     private Contact from;

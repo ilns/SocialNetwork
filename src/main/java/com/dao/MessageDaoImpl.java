@@ -1,7 +1,7 @@
 package com.dao;
 
 
-import com.dao.Interfaces.iMessageDao;
+import com.dao.Interfaces.MessageDao;
 import com.model.Contact;
 import com.model.Message;
 import org.springframework.stereotype.Component;
@@ -13,7 +13,7 @@ import java.util.List;
  * Created by volodymyr on 15/06/15.
  */
 @Component
-public class MessageDao implements iMessageDao {
+public class MessageDaoImpl implements MessageDao {
 
     private List<Message> messages = new ArrayList<>();
 

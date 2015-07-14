@@ -1,11 +1,11 @@
 package com.Service;
 //package com.Service.interfaces.;
 
-import com.Service.interfaces.iJavaContactService;
-import com.dao.ContactDao;
-import com.dao.HobbyDao;
-import com.dao.MessageDao;
-import com.dao.PlaceDao;
+import com.Service.interfaces.JavaContactService;
+import com.dao.ContactDaoImpl;
+import com.dao.HobbyDaoImpl;
+import com.dao.MessageDaoImpl;
+import com.dao.PlaceDaoImpl;
 import com.model.Contact;
 import com.model.Hobby;
 import com.model.Message;
@@ -21,36 +21,36 @@ import java.util.Set;
  * Created by volodymyr on 15/06/15.
  */
 @Component
-public class JavaContactService implements iJavaContactService {
+public class JavaContactServiceImpl implements JavaContactService {
 
     @Autowired
-    private ContactDao contactDao;
+    private ContactDaoImpl contactDaoImplImpl;
     @Autowired
-    private HobbyDao hobbyDao;
+    private HobbyDaoImpl hobbyDaoImplImpl;
     @Autowired
-    private PlaceDao placeDao;
+    private PlaceDaoImpl placeDaoImplImpl;
     @Autowired
-    private MessageDao messageDao;
+    private MessageDaoImpl messageDaoImplImpl;
 
     @Override
     public void createContact(String firstname, String lastName, LocalDate birthDay) {
-        contactDao.addContact(new Contact(firstname, lastName, birthDay));
+        contactDaoImplImpl.addContact(new Contact(firstname, lastName, birthDay));
     }
 
     @Override
     public void addHobby(String title, String description) {
-        hobbyDao.addHobby(new Hobby(title, description));
+        hobbyDaoImplImpl.addHobby(new Hobby(title, description));
     }
 
     @Override
     public void addPlace(String title, String description, double longitude, double latitude) {
-        placeDao.addPlace(new Place(title, description, longitude, latitude));
+        placeDaoImplImpl.addPlace(new Place(title, description, longitude, latitude));
     }
 
 
     @Override
     public void addFriendShip(Contact firstContact, Contact secondContact) {
-        contactDao.addFriendShip(firstContact, secondContact);
+        contactDaoImplImpl.addFriendShip(firstContact, secondContact);
     }
 
     @Override
@@ -60,6 +60,6 @@ public class JavaContactService implements iJavaContactService {
 
     @Override
     public List<Message> getConversation(Contact firstcontact, Contact secondcontact) {
-        return messageDao.getConversation(firstcontact, secondcontact);
+        return messageDaoImplImpl.getConversation(firstcontact, secondcontact);
     }
 }
