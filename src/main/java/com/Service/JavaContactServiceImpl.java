@@ -24,17 +24,20 @@ import java.util.Set;
 public class JavaContactServiceImpl implements JavaContactService {
 
     @Autowired
-    private ContactDaoImpl contactDaoImplImpl;
-    @Autowired
-    private HobbyDaoImpl hobbyDaoImplImpl;
-    @Autowired
-    private PlaceDaoImpl placeDaoImplImpl;
-    @Autowired
-    private MessageDaoImpl messageDaoImplImpl;
+    ContactDaoImpl contactDaoImplImpl;
+
+//    @Autowired
+    HobbyDaoImpl hobbyDaoImplImpl;
+
+//    @Autowired
+    PlaceDaoImpl placeDaoImplImpl;
+
+//    @Autowired
+    MessageDaoImpl messageDaoImplImpl;
 
     @Override
     public void createContact(String firstname, String lastName, LocalDate birthDay) {
-        contactDaoImplImpl.addContact(new Contact(firstname, lastName, birthDay));
+        contactDaoImplImpl.addContact(new Contact(firstname, lastName));
     }
 
     @Override
@@ -55,7 +58,7 @@ public class JavaContactServiceImpl implements JavaContactService {
 
     @Override
     public Set<Contact> getFriendlist(Contact contact) {
-        return contact.getFriends();
+        return null;
     }
 
     @Override

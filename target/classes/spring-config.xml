@@ -6,7 +6,36 @@
     <context:annotation-config />
     <context:component-scan base-package="com"/>
 
+    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+          destroy-method="close">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver" />
+        <property name="url" value="jdbc:mysql://localhost:3306/SocialNetwork" />
+        <property name="username" value="root" />
+        <property name="password" value="23561" />
+    </bean>
 
+    <!-- Hibernate 3 Annotation SessionFactory Bean definition-->
+    <bean id="hibernate3AnnotatedSessionFactory"
+          class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+        <property name="dataSource" ref="dataSource" />
+        <property name="annotatedClasses">
+            <list>
+                <value>com.model.Contact</value>
+            </list>
+        </property>
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+                <prop key="hibernate.current_session_context_class">thread</prop>
+                <prop key="hibernate.show_sql">false</prop>
+                <prop key="hibernate.hbm2ddl.auto">create</prop>
+            </props>
+        </property>
+    </bean>
+
+    <bean id="contactDaoImpl" class="com.dao.ContactDaoImpl">
+        <property name="sessionFactory" ref="hibernate3AnnotatedSessionFactory" />
+    </bean>
 
 
 

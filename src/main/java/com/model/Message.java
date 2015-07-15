@@ -3,16 +3,32 @@ package com.model;
 
 import org.joda.time.LocalDate;
 
+import javax.persistence.*;
+
 
 /**
  * Created by volodymyr on 15/06/15.
  */
-
+@Entity
+@Table
 public class Message {
+
+    @Column(name = "date")
     private LocalDate date;
+
+    @Column(name = "from")
     private Contact from;
+
+    @Column(name = "to")
     private Contact to;
+
+    @Column(name = "content")
     private String content;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "message_id", unique = true, nullable = false)
+    private int id;
 
     public Message(){}
 
@@ -46,5 +62,13 @@ public class Message {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

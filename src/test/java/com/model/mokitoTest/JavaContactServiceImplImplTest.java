@@ -8,13 +8,13 @@ import com.dao.PlaceDaoImpl;
 import com.model.Contact;
 import com.model.Place;
 import org.joda.time.LocalDate;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InOrder;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Collections;
 
@@ -29,7 +29,6 @@ import static org.mockito.Mockito.*;
 @RunWith(MockitoJUnitRunner.class)
 public class JavaContactServiceImplImplTest {
 
-    @Autowired
     private Contact contact;
 
     @Mock
@@ -38,8 +37,16 @@ public class JavaContactServiceImplImplTest {
     private HobbyDaoImpl hobbyDaoImplImpl;
     @Mock
     private PlaceDaoImpl placeDaoImplImpl;
+
     @Mock
     private MessageDaoImpl messageDaoImplImpl;
+
+    @Before
+    public void init() {
+        contact = new Contact();
+    }
+
+
 
     @InjectMocks
     private JavaContactServiceImpl mokedJavaContactServiceImplImpl = new JavaContactServiceImpl();

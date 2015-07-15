@@ -1,14 +1,30 @@
 package com.model;
 
+import javax.persistence.*;
+
 /**
  * Created by volodymyr on 15/06/15.
  */
-
+@Entity
+@Table(name = "place")
 public class Place {
+
+    @Column(name = "title")
     private String title;
+
+    @Column(name = "longitude")
     private double longitude;
+
+    @Column(name = "latitude")
     private double latitude;
+
+    @Column(name = "description")
     private String description;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "place_id", unique = true, nullable = false)
+    private int id;
 
     public Place(){}
 

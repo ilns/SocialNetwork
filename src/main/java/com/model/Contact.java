@@ -1,32 +1,45 @@
 package com.model;
 
 import org.joda.time.LocalDate;
-import org.springframework.stereotype.Component;
 
-import java.util.Set;
+import javax.persistence.*;
 
 /**
  * Created by volodymyr on 15/06/15.
  */
-
-@Component
+@Entity
+@Table(name = "contact")
 public class Contact {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "contact_id", unique = true, nullable = false)
+    private int id;
+
+    @Column(name = "first_name")
     private String firstName;
+    @Column(name = "last_name")
     private String lastName;
+    @Column
     private LocalDate birthDay;
-    private Set<Hobby> hobbies;
-    private Set<Place> places;
-    private Set<Contact> friends;
-
-    public Set<Contact> getFriends() {
-        return friends;
-    }
-
-    public void setFriends(Set<Contact> friends) {
-        this.friends = friends;
-    }
+//    private Set<Hobby> hobbies;
+//    private Set<Place> places;
+//    private Set<Contact> friends;
+//
+//    public Set<Contact> getFriends() {
+//        return friends;
+//    }
+//
+//    public void setFriends(Set<Contact> friends) {
+//        this.friends = friends;
+//    }
 
     public Contact (){}
+
+    public Contact(String firstName, String lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
 
     public Contact(String firstName, String lastName, LocalDate birthDay) {
         this.firstName = firstName;
@@ -58,19 +71,27 @@ public class Contact {
         this.birthDay = birthDay;
     }
 
-    public Set<Hobby> getHobbies() {
-        return hobbies;
+//    public Set<Hobby> getHobbies() {
+//        return hobbies;
+//    }
+//
+//    public void setHobbies(Set<Hobby> hobbies) {
+//        this.hobbies = hobbies;
+//    }
+//
+//    public Set<Place> getPlaces() {
+//        return places;
+//    }
+//
+//    public void setPlaces(Set<Place> places) {
+//        this.places = places;
+//    }
+
+    public int getId() {
+        return id;
     }
 
-    public void setHobbies(Set<Hobby> hobbies) {
-        this.hobbies = hobbies;
-    }
-
-    public Set<Place> getPlaces() {
-        return places;
-    }
-
-    public void setPlaces(Set<Place> places) {
-        this.places = places;
+    public void setId(int id) {
+        this.id = id;
     }
 }
