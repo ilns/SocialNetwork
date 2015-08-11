@@ -1,0 +1,6 @@
+.idea/*
+*.idea
+*.git
+*.iml
+*.gitignore
+*.gitignore~
