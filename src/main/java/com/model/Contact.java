@@ -1,27 +1,28 @@
 package com.model;
 
-import org.joda.time.LocalDate;
-
 import javax.persistence.*;
+import java.io.Serializable;
+import java.util.*;
 
 /**
  * Created by volodymyr on 15/06/15.
  */
 @Entity
 @Table(name = "contact")
-public class Contact {
+public class Contact implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "contact_id", unique = true, nullable = false)
+    @Column(name = "id", unique = true, nullable = false)
     private int id;
 
     @Column(name = "first_name")
     private String firstName;
     @Column(name = "last_name")
     private String lastName;
-    @Column
-    private LocalDate birthDay;
+    @Column(name = "birth_day")
+    private Date birthDay;
+
 //    private Set<Hobby> hobbies;
 //    private Set<Place> places;
 //    private Set<Contact> friends;
@@ -41,7 +42,7 @@ public class Contact {
         this.lastName = lastName;
     }
 
-    public Contact(String firstName, String lastName, LocalDate birthDay) {
+    public Contact(String firstName, String lastName, Date birthDay) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.birthDay = birthDay;
@@ -63,11 +64,11 @@ public class Contact {
         this.lastName = lastName;
     }
 
-    public LocalDate getBirthDay() {
+    public Date getBirthDay() {
         return birthDay;
     }
 
-    public void setBirthDay(LocalDate birthDay) {
+    public void setBirthDay(Date birthDay) {
         this.birthDay = birthDay;
     }
 

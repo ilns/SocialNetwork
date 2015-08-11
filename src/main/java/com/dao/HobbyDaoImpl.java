@@ -5,8 +5,6 @@ import com.dao.Interfaces.HobbyDao;
 import com.model.Contact;
 import com.model.Hobby;
 import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
-import org.hibernate.classic.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -27,11 +25,11 @@ public class HobbyDaoImpl implements HobbyDao {
 
     @Override
     public void addHobby(Hobby hobby) {
-        Session session = this.sessionFactory.openSession();
-        Transaction tx = session.beginTransaction();
-        session.persist(hobby);
-        tx.commit();
-        session.close();
+//        Session session = this.sessionFactory.openSession();
+//        Transaction tx = session.beginTransaction();
+//        session.persist(hobby);
+//        tx.commit();
+//        session.close();
     }
 
     @Override

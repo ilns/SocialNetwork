@@ -4,35 +4,23 @@ package com.dao;
 import com.dao.Interfaces.ContactDao;
 import com.model.Contact;
 import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
-import org.hibernate.classic.Session;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * Created by volodymyr on 15/06/15.
  */
-@Component
+@Repository
 public class ContactDaoImpl implements ContactDao {
 
+    @Autowired
     private SessionFactory sessionFactory;
 
-    @Autowired
-    public void setSessionFactory(SessionFactory sessionFactory) {
-        this.sessionFactory = sessionFactory;
-    }
-
-    public SessionFactory getSessionFactory() {
-        return sessionFactory;
-    }
-
     @Override
+    @Transactional
     public void addContact(Contact contact) {
-        Session session = this.sessionFactory.openSession();
-        Transaction tx = session.beginTransaction();
-        session.persist(contact);
-        tx.commit();
-        session.close();
+        sessionFactory.getCurrentSession().saveOrUpdate(contact);
     }
 
     @Override

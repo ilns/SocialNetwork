@@ -7,7 +7,6 @@ import com.dao.MessageDaoImpl;
 import com.dao.PlaceDaoImpl;
 import com.model.Contact;
 import com.model.Place;
-import org.joda.time.LocalDate;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -18,7 +17,6 @@ import org.mockito.runners.MockitoJUnitRunner;
 
 import java.util.Collections;
 
-import static org.mockito.Matchers.any;
 import static org.mockito.Matchers.anyObject;
 import static org.mockito.Matchers.isA;
 import static org.mockito.Mockito.*;
@@ -53,10 +51,10 @@ public class JavaContactServiceImplImplTest {
 
     @Test
     public void testCreateContact() throws Exception{
-        mokedJavaContactServiceImplImpl.createContact("Vova", "Zinchenko", any(LocalDate.class));
+        mokedJavaContactServiceImplImpl.createContact("Vova", "Zinchenko");
         verify(contactDaoImplImpl).addContact((Contact) anyObject());
 
-        mokedJavaContactServiceImplImpl.createContact("Alex", "Zinchenko", any(LocalDate.class));
+        mokedJavaContactServiceImplImpl.createContact("Alex", "Zinchenko");
         verify(contactDaoImplImpl, times(2)).addContact((Contact) anyObject());
 
     }
@@ -92,13 +90,12 @@ public class JavaContactServiceImplImplTest {
 
         JavaContactServiceImpl mockJavaContactServiceImplImpl = mock(JavaContactServiceImpl.class);
 
-        LocalDate dt = new LocalDate(1993, 12, 3);
 
-        mockJavaContactServiceImplImpl.createContact("Vova", "Zinchenko", dt);
+        mockJavaContactServiceImplImpl.createContact("Vova", "Zinchenko");
 
         InOrder inOrder = inOrder(mockJavaContactServiceImplImpl);
 
-        inOrder.verify(mockJavaContactServiceImplImpl).createContact("Vova", "Zinchenko", dt);
+        inOrder.verify(mockJavaContactServiceImplImpl).createContact("Vova", "Zinchenko");
 
     }
 

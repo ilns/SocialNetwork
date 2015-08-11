@@ -1,30 +1,30 @@
 package com.Service;
-//package com.Service.interfaces.;
 
 import com.Service.interfaces.JavaContactService;
-import com.dao.ContactDaoImpl;
 import com.dao.HobbyDaoImpl;
+import com.dao.Interfaces.ContactDao;
 import com.dao.MessageDaoImpl;
 import com.dao.PlaceDaoImpl;
 import com.model.Contact;
 import com.model.Hobby;
 import com.model.Message;
 import com.model.Place;
-import org.joda.time.LocalDate;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Set;
 
 /**
  * Created by volodymyr on 15/06/15.
  */
-@Component
+@Service
 public class JavaContactServiceImpl implements JavaContactService {
 
     @Autowired
-    ContactDaoImpl contactDaoImplImpl;
+    ContactDao contactDao;
 
 //    @Autowired
     HobbyDaoImpl hobbyDaoImplImpl;
@@ -35,9 +35,17 @@ public class JavaContactServiceImpl implements JavaContactService {
 //    @Autowired
     MessageDaoImpl messageDaoImplImpl;
 
+
     @Override
-    public void createContact(String firstname, String lastName, LocalDate birthDay) {
-        contactDaoImplImpl.addContact(new Contact(firstname, lastName));
+    @Transactional
+    public void createContact(String firstName, String lastName, Date birthDay) {
+        contactDao.addContact(new Contact(firstName, lastName, birthDay));
+    }
+
+    @Override
+    @Transactional
+    public void createContact(String firstName, String lastName) {
+        contactDao.addContact(new Contact(firstName, lastName));
     }
 
     @Override
@@ -53,7 +61,7 @@ public class JavaContactServiceImpl implements JavaContactService {
 
     @Override
     public void addFriendShip(Contact firstContact, Contact secondContact) {
-        contactDaoImplImpl.addFriendShip(firstContact, secondContact);
+        contactDao.addFriendShip(firstContact, secondContact);
     }
 
     @Override
