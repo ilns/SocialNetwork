@@ -1,11 +1,13 @@
 package com.logic;
 
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
 /**
  * Created by volodymyr on 15/06/15.
  */
 public class App {
     public static void main(String[] args) {
-//        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("WEB-INF/spring-config.xml");
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("WEB-INF/spring-config.xml");
 //        JavaContactService javaContactService = context.getBean(JavaContactService.class);
 //        ContactDao contactDao = context.getBean(ContactDao.class);
 //        HobbyDao hobbyDao = context.getBean(HobbyDao.class);

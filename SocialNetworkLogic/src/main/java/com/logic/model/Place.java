@@ -1,6 +1,7 @@
 package com.logic.model;
 
 import javax.persistence.*;
+import java.util.Set;
 
 /**
  * Created by volodymyr on 15/06/15.
@@ -9,22 +10,22 @@ import javax.persistence.*;
 @Table(name = "place")
 public class Place {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", unique = true, nullable = false)
+    private int id;
+
     @Column(name = "title")
     private String title;
-
     @Column(name = "longitude")
     private double longitude;
-
     @Column(name = "latitude")
     private double latitude;
-
     @Column(name = "description")
     private String description;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "place_id", unique = true, nullable = false)
-    private int id;
+    @ManyToMany(mappedBy = "places")
+    private Set<Contact> contacts;
 
     public Place(){}
 

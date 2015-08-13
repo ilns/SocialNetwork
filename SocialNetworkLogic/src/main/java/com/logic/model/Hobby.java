@@ -1,6 +1,8 @@
 package com.logic.model;
 
 import javax.persistence.*;
+import java.io.Serializable;
+import java.util.Set;
 
 /**
  * Created by volodymyr on 15/06/15.
@@ -8,7 +10,12 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "hobby")
-public class Hobby {
+public class Hobby implements Serializable {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", unique = true, nullable = false)
+    private long id;
 
     @Column(name = "title")
     private String title;
@@ -16,10 +23,8 @@ public class Hobby {
     @Column(name = "description")
     private String description;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "hobby_id", unique = true, nullable = false)
-    private int id;
+    @ManyToMany(mappedBy = "hobbies")
+    private Set<Contact> contacts;
 
     public Hobby(){}
 
@@ -44,11 +49,11 @@ public class Hobby {
         this.description = description;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 }

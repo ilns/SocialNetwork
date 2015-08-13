@@ -11,5 +11,6 @@ import java.util.Set;
 // TODO FIX ME strange name of the interface, see java convention
 public interface PlaceDao {
      void addPlace(Place place);
+     void deletePlace(Place place);
      Set<Contact> getAllContactsForPlace(Place place);
 }

@@ -14,26 +14,42 @@ public class Contact implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", unique = true, nullable = false)
-    private int id;
-
+    private long id;
     @Column(name = "first_name")
     private String firstName;
     @Column(name = "last_name")
     private String lastName;
     @Column(name = "birth_day")
+    @Temporal(TemporalType.TIMESTAMP)
     private Date birthDay;
 
-//    private Set<Hobby> hobbies;
-//    private Set<Place> places;
-//    private Set<Contact> friends;
-//
-//    public Set<Contact> getFriends() {
-//        return friends;
-//    }
-//
-//    public void setFriends(Set<Contact> friends) {
-//        this.friends = friends;
-//    }
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinTable(name="Contact_hobbies",
+            joinColumns={@JoinColumn(name = "Contact_id")},
+            inverseJoinColumns={@JoinColumn(name="Hobby_id")})
+    private Set<Hobby> hobbies;
+
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinTable(name = "Contact_places",
+            joinColumns = {@JoinColumn(name= "Contact_id")},
+            inverseJoinColumns = {@JoinColumn(name = "Place_id")})
+    private Set<Place> places;
+
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinTable(name = "List_friends",
+            joinColumns = {@JoinColumn(name= "Contact_id_one")},
+            inverseJoinColumns = {@JoinColumn(name = "Contact_id_two")})
+    private Set<Contact> friends;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "Contact_message",
+            joinColumns = {@JoinColumn(name= "Contact_id")},
+            inverseJoinColumns = {@JoinColumn(name = "Message_id")})
+    private List<Message> messages;
+
+    @ManyToMany(mappedBy = "friends")
+    private Set<Contact> contactsFriends;
+
 
     public Contact (){}
 
@@ -47,6 +63,8 @@ public class Contact implements Serializable {
         this.lastName = lastName;
         this.birthDay = birthDay;
     }
+
+
 
     public String getFirstName() {
         return firstName;
@@ -72,27 +90,51 @@ public class Contact implements Serializable {
         this.birthDay = birthDay;
     }
 
-//    public Set<Hobby> getHobbies() {
-//        return hobbies;
-//    }
-//
-//    public void setHobbies(Set<Hobby> hobbies) {
-//        this.hobbies = hobbies;
-//    }
-//
-//    public Set<Place> getPlaces() {
-//        return places;
-//    }
-//
-//    public void setPlaces(Set<Place> places) {
-//        this.places = places;
-//    }
+    public List<Message> getMessages() {
+        return messages;
+    }
 
-    public int getId() {
+    public void setMessages(List<Message> messages) {
+        this.messages = messages;
+    }
+
+    public Set<Contact> getContactsFriends() {
+        return contactsFriends;
+    }
+
+    public void setContactsFriends(Set<Contact> contactsFriends) {
+        this.contactsFriends = contactsFriends;
+    }
+
+    public Set<Hobby> getHobbies() {
+        return hobbies;
+    }
+
+    public void setHobbies(Set<Hobby> hobbies) {
+        this.hobbies = hobbies;
+    }
+
+    public Set<Place> getPlaces() {
+        return places;
+    }
+
+    public void setPlaces(Set<Place> places) {
+        this.places = places;
+    }
+
+    public Set<Contact> getFriends() {
+        return friends;
+    }
+
+    public void setFriends(Set<Contact> friends) {
+        this.friends = friends;
+    }
+
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 }

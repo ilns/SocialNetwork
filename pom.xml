@@ -4,6 +4,22 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
+
+    <properties>
+        <jdk.version>1.7</jdk.version>
+        <spring.version>4.0.5.RELEASE</spring.version>
+        <hibernate.version>4.2.1.Final</hibernate.version>
+        <hibernate-jpa.version>1.0.0.Final</hibernate-jpa.version>
+        <slf4j.version>1.6.1</slf4j.version>
+        <joda-time.version>2.3</joda-time.version>
+        <jstl.version>1.2</jstl.version>
+        <maxmind.geoip.version>1.2.10</maxmind.geoip.version>
+        <jackson.version>1.9.10</jackson.version>
+        <cglib.version>2.2.2</cglib.version>
+    </properties>
+
+
+
     <groupId>SocialNetwork</groupId>
     <artifactId>com.socialnetwork</artifactId>
     <packaging>pom</packaging>
@@ -13,19 +29,6 @@
         <module>SocialNetworkWeb</module>
     </modules>
 
-    <properties>
-        <jdk.version>1.7</jdk.version>
-        <spring.version>4.0.5.RELEASE</spring.version>
-        <hibernate.version>4.2.1.Final</hibernate.version>
-        <hibernate-jpa.version>1.0.0.Final</hibernate-jpa.version>
-        <log4j.version>1.2.16</log4j.version>
-        <slf4j.version>1.6.1</slf4j.version>
-        <joda-time.version>2.3</joda-time.version>
-        <jstl.version>1.2</jstl.version>
-        <maxmind.geoip.version>1.2.10</maxmind.geoip.version>
-        <jackson.version>1.9.10</jackson.version>
-        <cglib.version>2.2.2</cglib.version>
-    </properties>
 
     <dependencies>
         <dependency>

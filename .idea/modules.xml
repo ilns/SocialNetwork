@@ -2,6 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/SocialNetworkLogic/com.logic.iml" filepath="$PROJECT_DIR$/SocialNetworkLogic/com.logic.iml" />
+      <module fileurl="file://$PROJECT_DIR$/com.socialnetwork.iml" filepath="$PROJECT_DIR$/com.socialnetwork.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SocialNetworkWeb/com.web.iml" filepath="$PROJECT_DIR$/SocialNetworkWeb/com.web.iml" />
       <module fileurl="file://$PROJECT_DIR$/socialNetwork.iml" filepath="$PROJECT_DIR$/socialNetwork.iml" />
     </modules>
   </component>

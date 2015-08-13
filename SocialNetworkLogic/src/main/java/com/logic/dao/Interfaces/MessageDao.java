@@ -11,5 +11,6 @@ import java.util.List;
 // TODO FIX ME strange name of the interface, see java convention
 public interface MessageDao {
      void storeMessage(Message message);
+     void createNewMessageFromContactToContact(Contact contactFrom, Contact contactTo, String content);
      List<Message> getConversation(Contact firstcontact,Contact secondContact);
 }

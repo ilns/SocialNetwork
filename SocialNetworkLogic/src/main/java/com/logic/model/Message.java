@@ -1,42 +1,46 @@
 package com.logic.model;
 
 
-import org.joda.time.LocalDate;
-
 import javax.persistence.*;
+import java.util.Date;
 
 
 /**
  * Created by volodymyr on 15/06/15.
  */
 @Entity
-@Table
+@Table(name = "message")
 public class Message {
-
-    @Column(name = "date")
-    private LocalDate date;
-
-    @Column(name = "from")
-    private Contact from;
-
-    @Column(name = "to")
-    private Contact to;
-
-    @Column(name = "content")
-    private String content;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "message_id", unique = true, nullable = false)
+    @Column(name = "id", unique = true, nullable = false)
     private int id;
+
+    @Column(name = "date")
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date date;
+    @Column(name = "from")
+    private Contact from;
+    @Column(name = "to")
+    private Contact to;
+    @Column(name = "content")
+    private String content;
+
 
     public Message(){}
 
-    public LocalDate getDate() {
+    public Message(Contact from, Contact to, String content){
+        this.from = from;
+        this.to = to;
+        this.content = content;
+    }
+
+    public Date getDate() {
         return date;
     }
 
-    public void setDate(LocalDate date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 
