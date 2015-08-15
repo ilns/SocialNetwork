@@ -1,7 +1,7 @@
 package com.logic.dao;
 
 
-import com.logic.dao.Interfaces.MessageDao;
+import com.logic.dao.interfaces.MessageDao;
 import com.logic.model.Contact;
 import com.logic.model.Message;
 import org.hibernate.SessionFactory;
@@ -33,8 +33,8 @@ public class MessageDaoImpl implements MessageDao {
     public void createNewMessageFromContactToContact(Contact contactFrom, Contact contactTo, String content) {
         Message message = new Message();
         message.setContent(content);;
-        message.setFrom(contactFrom);
-        message.setTo(contactTo);
+        message.setFromContact(contactFrom);
+        message.setToContact(contactTo);
         message.setDate(new Date());
         sessionFactory.getCurrentSession().saveOrUpdate(message );
     }

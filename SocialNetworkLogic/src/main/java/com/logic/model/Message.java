@@ -2,6 +2,7 @@ package com.logic.model;
 
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 
 
@@ -10,20 +11,23 @@ import java.util.Date;
  */
 @Entity
 @Table(name = "message")
-public class Message {
+public class Message implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", unique = true, nullable = false)
-    private int id;
+    private long id;
 
     @Column(name = "date")
     @Temporal(TemporalType.TIMESTAMP)
     private Date date;
-    @Column(name = "from")
-    private Contact from;
-    @Column(name = "to")
-    private Contact to;
+
+    @Column(name = "fromContact")
+    private Contact fromContact;
+
+    @Column(name = "toContact")
+    private Contact toContact;
+
     @Column(name = "content")
     private String content;
 
@@ -31,8 +35,8 @@ public class Message {
     public Message(){}
 
     public Message(Contact from, Contact to, String content){
-        this.from = from;
-        this.to = to;
+        this.fromContact = from;
+        this.toContact = to;
         this.content = content;
     }
 
@@ -44,20 +48,20 @@ public class Message {
         this.date = date;
     }
 
-    public Contact getFrom() {
-        return from;
+    public Contact getFromContact() {
+        return fromContact;
     }
 
-    public void setFrom(Contact from) {
-        this.from = from;
+    public void setFromContact(Contact fromContact) {
+        this.fromContact = fromContact;
     }
 
-    public Contact getTo() {
-        return to;
+    public Contact getToContact() {
+        return toContact;
     }
 
-    public void setTo(Contact to) {
-        this.to = to;
+    public void setToContact(Contact toContact) {
+        this.toContact = toContact;
     }
 
     public String getContent() {
@@ -68,11 +72,11 @@ public class Message {
         this.content = content;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 }

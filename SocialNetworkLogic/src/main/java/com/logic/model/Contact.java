@@ -15,39 +15,42 @@ public class Contact implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", unique = true, nullable = false)
     private long id;
+
     @Column(name = "first_name")
     private String firstName;
+
     @Column(name = "last_name")
     private String lastName;
+
     @Column(name = "birth_day")
     @Temporal(TemporalType.TIMESTAMP)
     private Date birthDay;
 
-    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(name="Contact_hobbies",
             joinColumns={@JoinColumn(name = "Contact_id")},
             inverseJoinColumns={@JoinColumn(name="Hobby_id")})
     private Set<Hobby> hobbies;
 
-    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(name = "Contact_places",
             joinColumns = {@JoinColumn(name= "Contact_id")},
             inverseJoinColumns = {@JoinColumn(name = "Place_id")})
     private Set<Place> places;
 
-    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(name = "List_friends",
             joinColumns = {@JoinColumn(name= "Contact_id_one")},
             inverseJoinColumns = {@JoinColumn(name = "Contact_id_two")})
     private Set<Contact> friends;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(name = "Contact_message",
             joinColumns = {@JoinColumn(name= "Contact_id")},
             inverseJoinColumns = {@JoinColumn(name = "Message_id")})
     private List<Message> messages;
 
-    @ManyToMany(mappedBy = "friends")
+    @ManyToMany(mappedBy = "friends", fetch = FetchType.EAGER)
     private Set<Contact> contactsFriends;
 
 

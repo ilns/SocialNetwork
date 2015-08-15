@@ -10,7 +10,7 @@ import java.util.Date;
  * Created by volodymyr on 11/08/15.
  */
 @Controller
-public class JspController {
+public class PagesController {
 
     @RequestMapping("/")
     public String getIndex(ModelMap modelMap) {

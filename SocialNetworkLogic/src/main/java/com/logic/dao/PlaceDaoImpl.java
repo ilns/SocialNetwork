@@ -1,7 +1,7 @@
 package com.logic.dao;
 
 
-import com.logic.dao.Interfaces.PlaceDao;
+import com.logic.dao.interfaces.PlaceDao;
 import com.logic.model.Contact;
 import com.logic.model.Place;
 import org.hibernate.SessionFactory;

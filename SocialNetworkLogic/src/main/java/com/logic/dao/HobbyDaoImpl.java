@@ -1,7 +1,7 @@
 package com.logic.dao;
 
 
-import com.logic.dao.Interfaces.HobbyDao;
+import com.logic.dao.interfaces.HobbyDao;
 import com.logic.model.Contact;
 import com.logic.model.Hobby;
 import org.hibernate.SessionFactory;

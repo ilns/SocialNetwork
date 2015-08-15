@@ -1,10 +1,10 @@
 package com.logic.Service;
 
 import com.logic.Service.interfaces.JavaContactService;
-import com.logic.dao.Interfaces.ContactDao;
-import com.logic.dao.Interfaces.HobbyDao;
-import com.logic.dao.Interfaces.MessageDao;
-import com.logic.dao.Interfaces.PlaceDao;
+import com.logic.dao.interfaces.ContactDao;
+import com.logic.dao.interfaces.HobbyDao;
+import com.logic.dao.interfaces.MessageDao;
+import com.logic.dao.interfaces.PlaceDao;
 import com.logic.model.Contact;
 import com.logic.model.Hobby;
 import com.logic.model.Message;

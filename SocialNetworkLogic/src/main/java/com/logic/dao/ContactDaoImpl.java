@@ -1,7 +1,7 @@
 package com.logic.dao;
 
 
-import com.logic.dao.Interfaces.ContactDao;
+import com.logic.dao.interfaces.ContactDao;
 import com.logic.model.Contact;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,4 +1,4 @@
-package com.logic.dao.Interfaces;
+package com.logic.dao.interfaces;
 
 import com.logic.model.Contact;
 import com.logic.model.Hobby;
