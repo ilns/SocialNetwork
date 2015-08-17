@@ -1,0 +1,32 @@
+<script>
+    $('#contactsTable').bootstrapTable();
+
+    function dateFormatter(value, row) {
+        var date = new Date(value);
+        return  ('0' + date.getDay()).slice(-2) + "-" +  (date.getMonth() + 1) + "-" + date.getUTCFullYear();
+    }
+</script>
+
+<div id="contacts">
+
+</div>
+
+<form id="addNewContact">
+
+    <div class="form-group">
+        <label for="firstName">First name</label>
+        <input type="text" class="form-control" name="firstName" id="firstName" placeholder="First name">
+    </div>
+
+    <div class="form-group">
+        <label for="lastName">Last Name</label>
+        <input type="text" class="form-control" name="lastName" id="lastName" placeholder="Last name">
+    </div>
+
+    <div class="form-group">
+        <label for="birthDay">Birth Day</label>
+        <input type="text" class="form-control" name="birthDay" id="birthDay" placeholder="Birth Day">
+    </div>
+
+    <button type="button" onclick="submitContact();" class="btn btn-default">Submit</button>
+</form>
