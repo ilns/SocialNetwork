@@ -43,16 +43,22 @@ public class ContactController {
     }
 
     @ResponseStatus(HttpStatus.OK)
-    public @ResponseBody String deleteContact(@RequestParam(value = "contact", required = true) String contact){
+    @RequestMapping(value = "delete-contact", method = RequestMethod.POST)
+    public @ResponseBody String deleteContact(
+            @RequestParam(value = "contactIds", required = true) String contactIds){
+
+        String[] contactIdsArr = contactIds.split(",");
+
         List<Contact> contacts = contactDao.getAllContact();
-//
-//        for (Contact contact : contacts){
-//            if (contact.getFirstName().equals(contacts)&&contact.getLastName().equals(contacts)){
-//                contactDao.deleteContact(contact);
-//            }
-//
-//        }
-        return "ok";
+        for (Contact contact: contacts) {
+            for (String contactId: contactIdsArr) {
+                if (contact.getId() == Long.parseLong(contactId)) {
+                    contactDao.deleteContact(contact);
+                }
+            }
+        }
+
+        return "contact deleted";
     }
 
 

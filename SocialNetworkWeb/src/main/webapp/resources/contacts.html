@@ -1,33 +1,11 @@
-<script>
-    $('#contactsTable').bootstrapTable();
+<script type="text/javascript">
 
-    function dateFormatter(value, row) {
-        var date = new Date(value);
-        return  ('0' + date.getDay()).slice(-2) + "-" +  (date.getMonth() + 1) + "-" + date.getUTCFullYear();
-    }
+    // init variables
+    var $table = $('#contactsTable');
+    var $button = $('#button');
 
-    function deleteField (value,row){
-
-
-    }
-
-    var $table = $('#contactsTable'),
-            $button = $('#button');
-    $(function () {
-        $button.click(function () {
-            var ids = $.map($table.bootstrapTable('getSelections'), function (row) {
-                return row.id;
-            });
-            $table.bootstrapTable('remove', {
-                field: 'id',
-                values: ids
-            });
-        });
-    });
-
-    $table = $('contactsTable').bootstrapTable({
-        data: getRows()
-    });
+    $table.bootstrapTable(); //init table
+    $button.on('click', removeContacats); //add event
 
 </script>
 

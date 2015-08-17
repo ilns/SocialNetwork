@@ -1,4 +1,3 @@
-
 var pageContent;
 $(document).ready(function(){
 
@@ -9,21 +8,26 @@ $(document).ready(function(){
 
 function showMessagesPage() {
     $.get('/html/messages', function (data) {
-        pageContent.html(data);
+        loadHTML(data);
     });
 }
 
 function showContactsPage() {
     $.get('/html/contacts', function (data) {
-        pageContent.html(data);
+        loadHTML(data);
     });
 
 }
 function showAddContactsPage() {
     $.get('/html/add-contact', function (data) {
-        pageContent.html(data);
+        loadHTML(data);
     });
 }
+
+function loadHTML(html) {
+    pageContent.html(html);
+}
+
 
 function submitContact(){
     console.log('form submited');
