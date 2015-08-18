@@ -21,7 +21,7 @@ public class ContactDaoImpl implements ContactDao {
 
     @Override
     @Transactional
-    public void addContact(Contact contact) {
+    public void addOrUpdateContact(Contact contact) {
         sessionFactory.getCurrentSession().saveOrUpdate(contact);
     }
 
@@ -29,7 +29,6 @@ public class ContactDaoImpl implements ContactDao {
     @Transactional
     public List<Contact> getAllContact() {
         String strQuery = "from Contact";
-//      List<Contact> contactList = sessionFactory.getCurrentSession().createQuery("from Contact").list();
         List<Contact> contactList = sessionFactory.getCurrentSession().createQuery(strQuery).list();
         if (contactList == null) {
             return null;

@@ -9,7 +9,7 @@ import java.util.List;
  */
 // TODO FIX ME strange name of the interface, see java convention
 public interface ContactDao {
-     void addContact(Contact contact);
+     void addOrUpdateContact(Contact contact);
      List<Contact> getAllContact();
      List<Contact> getAllFriendsFromContact(Contact contact);
      void deleteContact(Contact contact);

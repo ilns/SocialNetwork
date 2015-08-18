@@ -1,7 +1,6 @@
 package com.logic.model;
 
 import javax.persistence.*;
-import java.util.Set;
 
 /**
  * Created by volodymyr on 15/06/15.
@@ -23,9 +22,6 @@ public class Place {
     private double latitude;
     @Column(name = "description")
     private String description;
-
-    @ManyToMany(mappedBy = "places")
-    private Set<Contact> contacts;
 
     public Place(){}
 
@@ -67,4 +63,5 @@ public class Place {
     public void setDescription(String description) {
         this.description = description;
     }
+
 }

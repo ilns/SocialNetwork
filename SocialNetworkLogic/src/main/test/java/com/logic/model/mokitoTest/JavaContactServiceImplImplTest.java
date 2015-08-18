@@ -52,10 +52,10 @@ public class JavaContactServiceImplImplTest {
     @Test
     public void testCreateContact() throws Exception{
         mokedJavaContactServiceImplImpl.createContact("Vova", "Zinchenko");
-        verify(contactDaoImplImpl).addContact((Contact) anyObject());
+        verify(contactDaoImplImpl).addOrUpdateContact((Contact) anyObject());
 
         mokedJavaContactServiceImplImpl.createContact("Alex", "Zinchenko");
-        verify(contactDaoImplImpl, times(2)).addContact((Contact) anyObject());
+        verify(contactDaoImplImpl, times(2)).addOrUpdateContact((Contact) anyObject());
 
     }
 

@@ -38,13 +38,13 @@ public class JavaContactServiceImpl implements JavaContactService {
     @Override
     @Transactional
     public void createContact(String firstName, String lastName, Date birthDay) {
-        contactDao.addContact(new Contact(firstName, lastName, birthDay));
+        contactDao.addOrUpdateContact(new Contact(firstName, lastName, birthDay));
     }
 
     @Override
     @Transactional
     public void createContact(String firstName, String lastName) {
-        contactDao.addContact(new Contact(firstName, lastName));
+        contactDao.addOrUpdateContact(new Contact(firstName, lastName));
     }
 
     @Override
