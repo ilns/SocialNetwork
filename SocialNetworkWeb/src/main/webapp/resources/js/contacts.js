@@ -6,6 +6,8 @@ function dateFormatter(value, row) {
     return  ('0' + date.getDay()).slice(-2) + "-" +  (date.getMonth() + 1) + "-" + date.getUTCFullYear();
 }
 
+
+
 function removeContacats() {
     var ids = $.map($table.bootstrapTable('getSelections'), function (row) {
         return row.id;
@@ -28,8 +30,5 @@ function removeContacats() {
             console.error('Cannot delete contact', e);
         }
     });
-
-
-
-
 }
+

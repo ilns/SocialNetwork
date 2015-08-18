@@ -17,21 +17,25 @@
       <profile default="true" name="Default" enabled="false">
         <processorPath useClasspath="true" />
       </profile>
-      <profile default="false" name="Maven default annotation processors profile" enabled="true">
+      <profile default="false" name="Annotation profile for com.web" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="com.web" />
+      </profile>
+      <profile default="false" name="Annotation profile for com.logic" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
         <module name="com.logic" />
-        <module name="com.web" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="com.logic" target="1.7" />
-      <module name="com.socialnetwork" target="1.7" />
-      <module name="com.web" target="1.7" />
-      <module name="socialNetwork" target="1.7" />
+      <module name="com.logic" target="1.8" />
+      <module name="com.socialnetwork" target="1.8" />
+      <module name="com.web" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
-

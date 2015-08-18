@@ -24,6 +24,12 @@ function showAddContactsPage() {
     });
 }
 
+function showAddPlacesPage() {
+    $.get('/html/add-place', function (data) {
+        loadHTML(data);
+    });
+}
+
 function loadHTML(html) {
     pageContent.html(html);
 }

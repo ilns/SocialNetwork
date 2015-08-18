@@ -1,0 +1,36 @@
+<script>
+    var $table = $('#contactsTable');
+    var $button = $('#button');
+
+    var map = new ymaps.Map("map", {
+        center: [55.76, 37.64],
+        zoom: 7
+    });
+
+    $table.bootstrapTable(); //init table
+    $button.on('click', addPlaces); //add event
+
+
+     map.events.add('click', faindCoordinations);
+
+</script>
+
+<table id="contactsTable" data-toggle="table" data-url="/contacts.json" data-click-to-select="true">
+    <thead>
+    <tr>
+
+        <th data-field="state" data-checkbox="true"></th>
+        <th data-field="firstName">First name</th>
+        <th data-field="lastName">Last name</th>
+        <th data-field="places">Places</th>
+    </tr>
+    </thead>
+</table>
+
+<div id="placesbar">
+    <button id="button"  style="float: left;" class="btn btn-default">Add Place</button>
+    <input  type="text"  style="float: left; width: 200px; margin-left: 5px;" class="form-control" id="title" placeholder="Title">
+    <input  type="text"  style="float: left; width: 200px; margin-left: 5px;" class="form-control" id="description" placeholder="Description">
+</div>
+
+<div id="map" style="width: 100%; height: 400px;margin-top: 50px; border: 1px solid;"></div>

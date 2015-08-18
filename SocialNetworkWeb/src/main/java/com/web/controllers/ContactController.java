@@ -38,7 +38,7 @@ public class ContactController {
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        contactDao.addContact(contact);
+        contactDao.addOrUpdateContact(contact);
         return "";
     }
 

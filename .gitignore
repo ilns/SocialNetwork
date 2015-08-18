@@ -1,9 +1,5 @@
 .idea/
-.idea
-*.idea/
 *.git
 *.iml
 target/
-*.gitignore
-*.gitignore~
 
