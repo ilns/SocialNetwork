@@ -43,7 +43,7 @@ public class ContactController {
     }
 
     @ResponseStatus(HttpStatus.OK)
-    @RequestMapping(value = "delete-contact", method = RequestMethod.POST)
+    @RequestMapping(value = "/delete-contact", method = RequestMethod.POST)
     public @ResponseBody String deleteContact(
             @RequestParam(value = "contactIds", required = true) String contactIds){
 
@@ -57,7 +57,6 @@ public class ContactController {
                 }
             }
         }
-
         return "contact deleted";
     }
 
